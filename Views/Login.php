@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Big Pizza - Inicio de sesión</title>
+<title>Oniric POS - Inicio de sesión</title>
 <link rel="stylesheet" href="../CSS/Login.css">
 </head>
 <body>
@@ -11,9 +11,9 @@
 
     <div class="login-card">
       <div class="brand">
-        <div class="brand-badge">BP</div>
+        <div class="brand-badge">OP</div>
         <div class="brand-text">
-          <div class="brand-name">Big Pizza</div>
+          <div class="brand-name">Oniric POS</div>
           <div class="brand-sub">Sistema de Puntos de Venta</div>
         </div>
       </div>

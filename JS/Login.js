@@ -13,5 +13,5 @@ document.getElementById('loginForm').addEventListener('submit', function(e){
 
   errorMsg.classList.add('hidden');
 
-  window.location.href = 'index.html';
+  window.location.href = 'POS.php';
 });

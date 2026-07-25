@@ -2,9 +2,9 @@
 
 ---
 
-# (Nombre)
+# (Oniric POS)
 
-**(Nombre)** Es un sistema de administracion de venta en el que puedes usar para mejor la administracion de registro y cobros de tu local, entre sus funciones disponibles estan:
+**(Oniric POS)** Es un sistema de administracion de venta en el que puedes usar para mejor la administracion de registro y cobros de tu local, entre sus funciones disponibles estan:
 - Registrar cobros.
 - Administrar ventas del dia.
 - Un sistema de inicio de sesion con usuarios registrado.
@@ -31,7 +31,7 @@ El proyecto fue realizado con el fin de optimizar el sistema de BigPizza(Ayres I
   
 ---
 
-## Imagenes del Sistema (Nombre)
+## Imagenes del Sistema (Oniric POS)
 
 ### **PANTALLA INICIAL**
 ![PLACEHOLDER.png](/Images/PLACEHOLDER.png)

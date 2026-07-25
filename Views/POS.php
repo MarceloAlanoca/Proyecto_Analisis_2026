@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Big Pizza - Sistema POS</title>
+<title>Oniric POS - Sistema POS</title>
 <link rel="stylesheet" href="../CSS/POS.css">
 </head>
 <body>
 
   <div class="topbar">
-    <div class="title">Big Pizza — Sistema de Puntos de Venta</div>
+    <div class="title">Oniric POS — Sistema de Puntos de Venta</div>
     <div class="meta">
       <span>Terminal 1</span>
       <span>Usuario: Cajero1</span>
@@ -120,14 +120,6 @@
               <div class="tile" onclick="openCategory('Bebidas')">
                 <div class="circle c-bebida">BEB</div>
                 <div class="label">Bebidas</div>
-              </div>
-              <div class="tile" onclick="openCategory('Postres')">
-                <div class="circle c-postre">PO</div>
-                <div class="label">Postres</div>
-              </div>
-              <div class="tile" onclick="openCategory('Cafetería')">
-                <div class="circle c-cafe">CAF</div>
-                <div class="label">Cafetería</div>
               </div>
               <div class="tile" onclick="openCategory('Menú Combo')">
                 <div class="circle c-menu">MC</div>
