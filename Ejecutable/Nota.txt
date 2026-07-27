@@ -1,0 +1,2 @@
+Este es una version Alpha del ejecutable para abrir todo el POS con un solo click
+(El proceso de levantar el servidor localmente y ponerlo en la web)

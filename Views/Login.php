@@ -28,16 +28,7 @@
           <span>Contraseña</span>
           <input type="password" id="clave" placeholder="••••••••" required>
         </label>
-
-        <label class="field">
-          <span>Terminal</span>
-          <select id="terminal">
-            <option>Terminal 1 - Mostrador</option>
-            <option>Terminal 2 - Salón</option>
-            <option>Terminal 3 - Delivery</option>
-          </select>
-        </label>
-
+        
         <div class="error-msg hidden" id="errorMsg">Usuario o contraseña incorrectos</div>
 
         <button type="submit" class="btn-login">Ingresar</button>

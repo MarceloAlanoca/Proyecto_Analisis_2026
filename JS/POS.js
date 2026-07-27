@@ -27,26 +27,13 @@
       {name:'Agua sin gas', price:900, code:'AG', color:'c-bebida'},
       {name:'Cerveza', price:2200, code:'CER', color:'c-bebida'},
     ],
-    'Postres': [
-      {name:'Torta individual chocolate', price:2000, code:'TC', color:'c-postre'},
-      {name:'Flan casero', price:1800, code:'FL', color:'c-postre'},
-    ],
-    'Cafetería': [
-      {name:'Café doble', price:1300, code:'CD', color:'c-cafe'},
-      {name:'Submarino', price:1600, code:'SUB', color:'c-cafe'},
-    ],
     'Favoritos': [
       {name:'Pizza Muzza', price:4200, code:'MOZ', color:'c-pizza'},
       {name:'Empanada carne', price:900, code:'CS', color:'c-empanada'},
-      {name:'Café doble', price:1300, code:'CD', color:'c-cafe'},
     ],
     'Promociones': [
       {name:'Docena empanadas', price:9500, code:'DOC', color:'c-empanada'},
       {name:'Combo 2 pizzas', price:9000, code:'C2P', color:'c-pizza'},
-    ],
-    'Menú Combo': [
-      {name:'Combo individual', price:5900, code:'CI', color:'c-menu'},
-      {name:'Combo familiar', price:15900, code:'CF', color:'c-menu'},
     ],
   };
 
@@ -124,7 +111,7 @@
 .getElementById("btnSalir")
 .addEventListener("click", ()=>{
 
-    window.location.href="../Login/login.html";
+    window.location.href="Login.php";
 
 });
   renderOrder();
