@@ -330,3 +330,99 @@ tbody td{
 .modal-warning .modal-title{ color:var(--red); text-align:center; }
 .modal-warning .modal-sub{ text-align:center; }
 .modal-warning .modal-actions .btn{ flex:none; width:100%; }
+
+.payment-dropdown{
+    position:relative;
+}
+
+.btn-payment{
+    color: var(--panel);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background: var(--navy);
+    border:1px solid var(--line);
+}
+
+.btn-payment img{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+}
+
+.arrow{
+    margin-left:4px;
+    font-size:11px;
+}
+
+.payment-menu{
+    position:absolute;
+    bottom:105%;
+    left:0;
+    width:190px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+    z-index:1000;
+}
+
+.payment-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    cursor:pointer;
+}
+
+.payment-item:hover{
+    background:#f5f7fa;
+}
+
+.payment-item img{
+    width:20px;
+    height:20px;
+}
+
+/* ===== Modal Cerrar Sesión ===== */
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(15,37,54,.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.modal-card{
+    background:#fff;
+    width:360px;
+    max-width:90%;
+    padding:24px;
+    border-radius:10px;
+    box-shadow:0 12px 32px rgba(0,0,0,.28);
+}
+
+.modal-card .modal-title{
+    font-size:18px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:10px;
+}
+
+.modal-card .modal-sub{
+    color:var(--muted);
+    margin-bottom:20px;
+    line-height:1.4;
+}
+
+.btn-red{
+    background:var(--red);
+    color:#fff;
+}
+
+.btn-red:hover{
+    filter:brightness(.9);
+}

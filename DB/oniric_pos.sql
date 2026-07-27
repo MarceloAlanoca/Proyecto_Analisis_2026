@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-07-2026 a las 13:13:23
+-- Tiempo de generación: 27-07-2026 a las 14:46:08
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -39,6 +39,14 @@ CREATE TABLE `productos` (
   `activo` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `codigo`, `nombre`, `categoria`, `precio`, `stock`, `destacado`, `promocion`, `activo`, `created_at`) VALUES
+(1, 'JQ', 'Empanada Jamón y Queso', 'empanada', 900.00, 100, 1, 0, 1, '2026-07-27 11:31:34'),
+(2, 'CS', 'Empanada Carne Suave', 'empanada', 900.00, 100, 1, 0, 1, '2026-07-27 11:31:34');
 
 -- --------------------------------------------------------
 
@@ -89,7 +97,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

@@ -1,10 +1,16 @@
+<?php
+require_once("../Includes/LogVerify.php");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<title>Oniric POS - Sistema POS</title>
-<link rel="stylesheet" href="../CSS/POS.css">
+  <meta charset="UTF-8">
+  <title>Oniric POS - Sistema POS</title>
+  <link rel="stylesheet" href="../CSS/POS.css">
 </head>
+
 <body>
 
   <div class="topbar">
@@ -73,17 +79,31 @@
               <span class="amount">$ <span id="totalAmount">0,00</span></span>
             </div>
             <div class="action-row">
-              <button class="btn btn-navy">Proforma</button>
+              <div class="payment-dropdown">
+
+                <button class="btn btn-payment" id="btnPayment">
+                  <img id="paymentIcon" src="../Images/Icons/Efectivo.jpe">
+
+                  <span id="paymentText">Efectivo</span>
+
+                  <span class="arrow">▼</span>
+                </button>
+
+                <div id="paymentMenu" class="payment-menu hidden"></div>
+
+              </div>
+
               <button class="btn btn-green" id="btnCobrar">
-                  Cobrar
+                Cobrar
               </button>
+
             </div>
           </div>
 
           <div class="status-row">
-              <span class="status-ok">AFIP</span>
-              <span class="status-ok">Caja</span>
-              <span id="comanderaStatus" class="status-error">Comandera</span>
+            <span class="status-ok">AFIP</span>
+            <span class="status-ok">Caja</span>
+            <span id="comanderaStatus" class="status-error">Comandera</span>
           </div>
         </div>
 
@@ -135,8 +155,33 @@
       </div>
     </div>
   </div>
+  <!-- Modal Cerrar Sesión -->
+<div id="logoutModal" class="modal-overlay hidden">
+
+    <div class="modal-card">
+
+        <h2 class="modal-title">Cerrar sesión</h2>
+
+        <p class="modal-sub">
+            ¿Seguro que deseas cerrar la sesión?
+        </p>
+
+        <div class="modal-actions">
+
+            <button id="cancelLogout" class="btn btn-outline">
+                Cancelar
+            </button>
+
+            <button id="confirmLogout" class="btn btn-red">
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </div>
+</div>
 
 <script src="../JS/POS.js"></script>
-
 </body>
+
 </html>

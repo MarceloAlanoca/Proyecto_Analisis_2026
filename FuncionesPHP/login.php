@@ -68,9 +68,14 @@ try {
         exit;
     }
 
-    unset($user["clave"]);
+    session_regenerate_id(true);
 
-    $_SESSION["usuario"] = $user;
+    $_SESSION["logueado"] = true;
+    $_SESSION["id"] = $user["id"];
+    $_SESSION["usuario"] = $user["usuario"];
+    $_SESSION["nombre"] = $user["nombre"];
+    $_SESSION["rol"] = $user["rol"];
+    $_SESSION["inicio"] = time();
 
     echo json_encode([
         "success" => true,
