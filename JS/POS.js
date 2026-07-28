@@ -99,7 +99,13 @@ function buildCatalog(productos) {
   });
 }
 
-const order = [];
+const pedido = {
+  cliente: "Consumidor Final",
+  fecha: new Date(),
+  metodoPago: null,
+  total: 0,
+  items: [],
+};
 
 function openCategory(catName) {
   const grid = document.getElementById("productGrid");
@@ -133,30 +139,34 @@ document.getElementById("backBtn").addEventListener("click", () => {
 });
 
 function addItem(name, price) {
-  const existing = order.find((i) => i.name === name);
+  const existing = pedido.items.find((i) => i.name === name);
   if (existing) {
     existing.qty += 1;
   } else {
-    order.push({ name, price, qty: 1 });
+    pedido.items.push({ name, price, qty: 1 });
   }
   renderOrder();
 }
 
 function changeQty(idx, delta) {
-  order[idx].qty += delta;
-  if (order[idx].qty <= 0) order.splice(idx, 1);
+  pedido.items[idx].qty += delta;
+
+  if (pedido.items[idx].qty <= 0) {
+    pedido.items.splice(idx, 1);
+  }
+
   renderOrder();
 }
 
 function renderOrder() {
   const body = document.getElementById("orderBody");
   const empty = document.getElementById("emptyOrder");
-  if (order.length === 0) {
+  if (pedido.items.length == 0) {
     body.innerHTML = "";
     empty.classList.remove("hidden");
   } else {
     empty.classList.add("hidden");
-    body.innerHTML = order
+    body.innerHTML = pedido.items
       .map(
         (item, idx) => `
         <tr>
@@ -174,8 +184,9 @@ function renderOrder() {
       )
       .join("");
   }
-  const totalItems = order.reduce((s, i) => s + i.qty, 0);
-  const totalAmount = order.reduce((s, i) => s + i.qty * i.price, 0);
+  const totalItems = pedido.items.reduce((s, i) => s + i.qty, 0);
+  const totalAmount = pedido.items.reduce((s, i) => s + i.qty * i.price, 0);
+  pedido.total = totalAmount;
   document.getElementById("itemCount").textContent = totalItems;
   document.getElementById("totalAmount").textContent =
     totalAmount.toLocaleString("es-AR", { minimumFractionDigits: 2 });
@@ -194,7 +205,7 @@ cancelLogout.addEventListener("click", () => {
 });
 
 confirmLogout.addEventListener("click", () => {
-  window.location.replace("../FuncionesPHP/logout.php");;
+  window.location.replace("../FuncionesPHP/logout.php");
 });
 
 const paymentMethods = [
@@ -236,37 +247,43 @@ function createPaymentMenu() {
 }
 
 let currentPayment = paymentMethods[0];
+pedido.metodoPago = currentPayment;
 
-function initializePaymentMenu(){
-
-    const btnPayment = document.getElementById("btnPayment");
-    const menu = document.getElementById("paymentMenu");
-    const paymentText = document.getElementById("paymentText");
-    const paymentIcon = document.getElementById("paymentIcon");
-    btnPayment.addEventListener("click",(e)=>{
-        e.stopPropagation();
-        menu.classList.toggle("hidden");
+function initializePaymentMenu() {
+  const btnPayment = document.getElementById("btnPayment");
+  const menu = document.getElementById("paymentMenu");
+  const paymentText = document.getElementById("paymentText");
+  const paymentIcon = document.getElementById("paymentIcon");
+  btnPayment.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("hidden");
+  });
+  document.querySelectorAll(".payment-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      currentPayment = {
+        id: item.dataset.id,
+        name: item.dataset.name,
+        icon: item.dataset.icon,
+      };
+      pedido.metodoPago = currentPayment;
+      paymentText.textContent = currentPayment.name;
+      paymentIcon.src = currentPayment.icon;
+      menu.classList.add("hidden");
     });
-    document.querySelectorAll(".payment-item").forEach(item=>{
-        item.addEventListener("click",()=>{
-            currentPayment={
-                id:item.dataset.id,
-                name:item.dataset.name,
-                icon:item.dataset.icon
-            };
-            paymentText.textContent=currentPayment.name;
-            paymentIcon.src=currentPayment.icon;
-            menu.classList.add("hidden");
-        });
-    });
-    document.addEventListener("click",()=>{
-        menu.classList.add("hidden");
-    });
-
+  });
+  document.addEventListener("click", () => {
+    menu.classList.add("hidden");
+  });
 }
 
 document.addEventListener("click", function () {
   paymentMenu.classList.add("hidden");
+});
+
+const btnCobrar = document.getElementById("btnCobrar");
+btnCobrar.addEventListener("click", async () => {
+  pedido.fecha = new Date();
+  await imprimirComanda(pedido);
 });
 
 createPaymentMenu();
