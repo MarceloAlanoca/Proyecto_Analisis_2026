@@ -181,6 +181,8 @@ require_once("../Includes/LogVerify.php");
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/qz-tray/qz-tray.js"></script>
+<script src="../JS/Printer.js"></script>
 <script src="../JS/POS.js"></script>
 </body>
 
